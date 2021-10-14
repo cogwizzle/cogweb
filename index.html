@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cogweb</title>
+    <script type="module">
+      import { TitlePageLayout } from './src/component/title-page-layout.js';
+      import { BlogList } from './src/component/blog-list.js';
+
+      customElements.define('cw-title-page-layout', TitlePageLayout);
+      customElements.define('cw-blog-list', BlogList);
+    </script>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <cw-title-page-layout>
+      <cw-blog-list></cw-blog-list>
+    </cw-title-page-layout>
+  </body>
+</html>
