@@ -7,6 +7,15 @@ export class TitlePageLayout extends HTMLElement {
       customElements.define('cw-header', Header);
     }
     this.attachShadow({ mode: 'open' });
+    const globalStyles = document.createElement('template');
+    globalStyles.innerHTML = `
+      <style>
+        body {
+          margin: 0;
+        }
+      </style>
+    `;
+    this.appendChild(globalStyles.content.cloneNode(true));
     this.render();
   }
 
