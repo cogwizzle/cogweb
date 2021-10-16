@@ -7,11 +7,26 @@
     <title>Cogweb</title>
     <script type="module">
       import { HomePage } from './src/component/home-page.js';
+      import { createRouter } from './src/component/router.js';
+      import { BlogEntryPage } from './src/component/blog-entry-page.js';
 
       customElements.define('cw-home-page', HomePage);
+      customElements.define('cw-blog-entry-page', BlogEntryPage);
+
+      const routes = [
+        {
+          path: 'blog/{entry}',
+          component: 'cw-blog-entry-page',
+        },
+        {
+          path: '',
+          component: 'cw-home-page',
+        },
+      ];
+      customElements.define('cw-router', createRouter(routes));
     </script>
   </head>
   <body>
-    <cw-home-page />
+    <cw-router></cw-router>
   </body>
 </html>

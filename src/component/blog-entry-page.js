@@ -13,8 +13,30 @@ const getBlog = async (resource) => {
 };
 
 export class BlogEntryPage extends HTMLElement {
+  static get observedAttributes() {
+    return ['entry'];
+  }
+
   constructor() {
     super();
+  }
+
+  set entry(value) {
+    this.setAttribute('entry', value);
+  }
+
+  get entry() {
+    this.getAttribute('entry');
+  }
+
+  async getBlogData() {
+    const text = await getBlog(this.getAttribute('entry'));
+    this.text = text;
+    this.loading = false;
+    this.render();
+  }
+
+  connectedCallback() {
     this.loading = true;
     this.getBlogData();
     this.render();
@@ -24,28 +46,6 @@ export class BlogEntryPage extends HTMLElement {
     if (customElements.get('cw-title-page-layout') === undefined) {
       customElements.define('cw-title-page-layout', TitlePageLayout);
     }
-  }
-
-  getBlogData() {
-    getBlog(window.location.hash.substring(1)).then((text) => {
-      this.text = text;
-      this.loading = false;
-      this.render();
-    });
-  }
-
-  hashChange() {
-    this.loading = true;
-    this.getBlogData();
-    this.render();
-  }
-
-  connectedCallback() {
-    window.addEventListener('hashchage', () => this.hashChange());
-  }
-
-  disconnectedCallback() {
-    window.removeEventListener('hashchage', () => this.hashChange());
   }
 
   showLoader() {

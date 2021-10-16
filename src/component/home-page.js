@@ -11,6 +11,9 @@ template.innerHTML = `
 export class HomePage extends HTMLElement {
   constructor() {
     super();
+  }
+
+  connectedCallback() {
     if (customElements.get('cw-title-page-layout') === undefined) {
       customElements.define('cw-title-page-layout', TitlePageLayout);
     }
