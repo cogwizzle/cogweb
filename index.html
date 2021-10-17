@@ -6,31 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CogWizzle</title>
     <script type="module">
-      import { HomePage } from './src/component/home-page.js';
-      import { BlogEntryPage } from './src/component/blog-entry-page.js';
+      import { BlogRouter } from './src/component/blog-router.js';
       import { TitlePageLayout } from './src/component/title-page-layout.js';
-      import { createRouter } from './src/component/router.js';
 
-      customElements.define('cw-home-page', HomePage);
-      customElements.define('cw-blog-entry-page', BlogEntryPage);
+      customElements.define('cw-blog-router', BlogRouter);
       customElements.define('cw-title-page-layout', TitlePageLayout);
-
-      const routes = [
-        {
-          path: 'blog/{entry}',
-          component: 'cw-blog-entry-page',
-        },
-        {
-          path: '',
-          component: 'cw-home-page',
-        },
-      ];
-      customElements.define('cw-router', createRouter(routes));
     </script>
   </head>
   <body>
     <cw-title-page-layout>
-      <cw-router></cw-router>
+      <cw-blog-router></cw-blog-router>
     </cw-title-page-layout>
   </body>
 </html>

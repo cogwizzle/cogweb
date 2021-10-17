@@ -1,4 +1,3 @@
-import { TitlePageLayout } from './title-page-layout.js';
 import { BlogEntry } from './blog-entry.js';
 import { md } from '../utility/markdown.js';
 
@@ -42,9 +41,6 @@ export class BlogEntryPage extends HTMLElement {
     this.render();
     if (customElements.get('cw-blog-entry') === undefined) {
       customElements.define('cw-blog-entry', BlogEntry);
-    }
-    if (customElements.get('cw-title-page-layout') === undefined) {
-      customElements.define('cw-title-page-layout', TitlePageLayout);
     }
   }
 
