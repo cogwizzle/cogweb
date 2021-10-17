@@ -77,13 +77,18 @@ export class BlogList extends HTMLElement {
         a:visited {
           color: inherit;
         }
+
+        .entry {
+          margin-top: 16px;
+          padding: 16px;
+        }
       </style>
       ${this.data.map(
         (entry) =>
           `<a href="#blog/${entry.location}">
             <div class="entry">
-              <p>${entry.date} - ${entry.author}</p>
-              <p>${entry.body}</p>
+              <span>${entry.date} - ${entry.author}</span>
+              <div>${entry.body}</div>
             </div>
           </a>`
       )}

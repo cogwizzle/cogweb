@@ -58,7 +58,7 @@ export class BlogEntryPage extends HTMLElement {
     }
     const template = document.createElement('template');
     template.innerHTML = `
-        <cw-blog-entry>
+      <cw-blog-entry>
         ${md(this.text)}
       </cw-blog-entry>
     `;
