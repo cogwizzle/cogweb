@@ -30,9 +30,13 @@ export class TitlePageLayout extends HTMLElement {
           padding-right: 15px;
           margin: auto;
         }
+
+        .shadow {
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
       </style>
       <cw-header>CogWizzle</cw-header>
-      <div class="container">
+      <div class="container shadow">
         <slot></slot>
       </div>
     `;
