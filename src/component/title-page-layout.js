@@ -31,7 +31,7 @@ export class TitlePageLayout extends HTMLElement {
           margin: auto;
         }
       </style>
-      <cw-header>CogWeb</cw-header>
+      <cw-header>CogWizzle</cw-header>
       <div class="container">
         <slot></slot>
       </div>
