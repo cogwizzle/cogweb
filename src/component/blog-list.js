@@ -72,6 +72,7 @@ export class BlogList extends HTMLElement {
         a {
           color: inherit;
           text-decoration: none;
+          outline: none;
         }
 
         a:visited {
