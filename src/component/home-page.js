@@ -3,9 +3,7 @@ import { BlogList } from './blog-list.js';
 
 const template = document.createElement('template');
 template.innerHTML = `
-  <cw-title-page-layout>
-    <cw-blog-list></cw-blog-list>
-  </cw-title-page-layout>
+  <cw-blog-list></cw-blog-list>
 `;
 
 export class HomePage extends HTMLElement {

@@ -62,11 +62,9 @@ export class BlogEntryPage extends HTMLElement {
     }
     const template = document.createElement('template');
     template.innerHTML = `
-      <cw-title-page-layout>
         <cw-blog-entry>
-          ${md(this.text)}
-        </cw-blog-entry>
-      </cw-title-page-layout>
+        ${md(this.text)}
+      </cw-blog-entry>
     `;
     this.innerHTML = '';
     this.appendChild(template.content.cloneNode(true));
