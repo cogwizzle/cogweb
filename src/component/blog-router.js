@@ -1,4 +1,4 @@
-import { RouterElement } from './router-element.js';
+import { RouterElement } from 'https://unpkg.com/ez-hash-router@0.0.2/index.js';
 import { HomePage } from './home-page.js';
 import { BlogEntryPage } from './blog-entry-page.js';
 
