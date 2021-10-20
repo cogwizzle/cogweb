@@ -1,4 +1,5 @@
 import { md } from '../utility/markdown.js';
+import { loadingObservable } from './page-loading-bar.js';
 
 const getBlogList = async () => {
   try {
@@ -26,12 +27,17 @@ const getBlogList = async () => {
 export class BlogList extends HTMLElement {
   constructor() {
     super();
+  }
+
+  connectedCallback() {
     this.attachShadow({ mode: 'open' });
+    loadingObservable.pushLoadingState('blog-list');
     this.loading = true;
     getBlogList()
       .then((data) => {
         this.data = data;
         this.loading = false;
+        loadingObservable.resolveLoadingState('blog-list');
         this.render();
       })
       .then((render) => this.render())
@@ -58,11 +64,6 @@ export class BlogList extends HTMLElement {
 
   render() {
     if (this.loading) {
-      this.showLoader();
-      return;
-    }
-    if (!this.data) {
-      this.showLoader();
       return;
     }
     const shadowRoot = this.shadowRoot;

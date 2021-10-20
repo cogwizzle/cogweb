@@ -1,5 +1,6 @@
 import { BlogEntry } from './blog-entry.js';
 import { md } from '../utility/markdown.js';
+import { loadingObservable } from './page-loading-bar.js';
 
 const getBlog = async (resource) => {
   try {
@@ -32,6 +33,7 @@ export class BlogEntryPage extends HTMLElement {
     const text = await getBlog(this.getAttribute('entry'));
     this.text = text;
     this.loading = false;
+    loadingObservable.resolveLoadingState('blog-entry');
     this.render();
   }
 
@@ -53,7 +55,7 @@ export class BlogEntryPage extends HTMLElement {
 
   render() {
     if (this.loading) {
-      this.showLoader();
+      loadingObservable.pushLoadingState('blog-entry');
       return;
     }
     const template = document.createElement('template');
