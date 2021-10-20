@@ -1,10 +1,17 @@
 import { Header } from './header.js';
+import { PageLoadingBar } from './page-loading-bar.js';
 
 export class TitlePageLayout extends HTMLElement {
   constructor() {
     super();
+  }
+
+  connectedCallback() {
     if (customElements.get('cw-header') === undefined) {
       customElements.define('cw-header', Header);
+    }
+    if (customElements.get('cw-page-loading-bar') === undefined) {
+      customElements.define('cw-page-loading-bar', PageLoadingBar);
     }
     this.attachShadow({ mode: 'open' });
     const globalStyles = document.createElement('template');
@@ -36,6 +43,7 @@ export class TitlePageLayout extends HTMLElement {
         }
       </style>
       <cw-header>CogWizzle</cw-header>
+      <cw-page-loading-bar></cw-page-loading-bar>
       <div class="container shadow">
         <slot></slot>
       </div>
