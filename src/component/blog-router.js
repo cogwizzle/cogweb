@@ -1,19 +1,12 @@
 import { RouterElement } from 'https://unpkg.com/ez-hash-router@0.0.3/index.js';
-import { HomePage } from './home-page.js';
-import { LazyBlogEntryPage } from './lazy-blog-entry-page.js';
 import { loadingObservable } from './page-loading-bar.js';
+
 export class BlogRouter extends RouterElement {
   constructor() {
     super();
   }
 
   connectedCallback() {
-    if (customElements.get('cw-home-page') === undefined) {
-      customElements.define('cw-home-page', HomePage);
-    }
-    if (customElements.get('cw-lazy-blog-entry-page') === undefined) {
-      customElements.define('cw-lazy-blog-entry-page', LazyBlogEntryPage);
-    }
     this.routes = [
       {
         path: 'blog/{entry}',
@@ -50,7 +43,23 @@ export class BlogRouter extends RouterElement {
       },
       {
         path: '',
-        go: () => '<cw-home-page></cw-home-page>',
+        go: async () => {
+          if (customElements.get('cw-blog-entry-page') !== undefined) {
+            return '<cw-home-page></cw-home-page>';
+          }
+          loadingObservable.pushLoadingState('lazy-home-page');
+          try {
+            const { HomePage } = await import('./home-page.js');
+            if (!customElements.get('cw-home-page')) {
+              customElements.define('cw-home-page', HomePage);
+            }
+            return '<cw-home-page></cw-home-page>';
+          } catch (e) {
+            console.log(e);
+          } finally {
+            loadingObservable.resolveLoadingState('lazy-home-page');
+          }
+        },
       },
     ];
     super.connectedCallback();
