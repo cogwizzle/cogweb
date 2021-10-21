@@ -1,6 +1,6 @@
 import { RouterElement } from 'https://unpkg.com/ez-hash-router@0.0.2/index.js';
 import { HomePage } from './home-page.js';
-import { BlogEntryPage } from './blog-entry-page.js';
+import { LazyBlogEntryPage } from './lazy-blog-entry-page.js';
 
 export class BlogRouter extends RouterElement {
   constructor() {
@@ -11,13 +11,13 @@ export class BlogRouter extends RouterElement {
     if (customElements.get('cw-home-page') === undefined) {
       customElements.define('cw-home-page', HomePage);
     }
-    if (customElements.get('cw-blog-entry-page') === undefined) {
-      customElements.define('cw-blog-entry-page', BlogEntryPage);
+    if (customElements.get('cw-lazy-blog-entry-page') === undefined) {
+      customElements.define('cw-lazy-blog-entry-page', LazyBlogEntryPage);
     }
     this.routes = [
       {
         path: 'blog/{entry}',
-        component: 'cw-blog-entry-page',
+        component: 'cw-lazy-blog-entry-page',
       },
       {
         path: '',
