@@ -44,7 +44,7 @@ export class BlogRouter extends RouterElement {
       {
         path: '',
         go: async () => {
-          if (customElements.get('cw-blog-entry-page') !== undefined) {
+          if (customElements.get('cw-home-page') !== undefined) {
             return '<cw-home-page></cw-home-page>';
           }
           loadingObservable.pushLoadingState('lazy-home-page');
