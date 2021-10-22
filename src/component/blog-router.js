@@ -1,4 +1,4 @@
-import { RouterElement } from 'https://unpkg.com/ez-hash-router@0.0.3/index.js';
+import { RouterElement } from 'https://unpkg.com/ez-hash-router@0.0.4/index.js';
 import { loadingObservable } from './page-loading-bar.js';
 
 export class BlogRouter extends RouterElement {
@@ -63,5 +63,21 @@ export class BlogRouter extends RouterElement {
       },
     ];
     super.connectedCallback();
+  }
+
+  notFound() {
+    this.innerHTML = `
+      <style>
+        .not-found {
+          padding: 16px;
+        }
+      </style>
+      <div class="not-found">
+        <h1>Unable to find page</h1>
+        <div>
+          I'm sorry the page you're looking for was unable to be found.
+        </div>
+      </div>
+    `;
   }
 }
