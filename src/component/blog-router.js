@@ -66,6 +66,7 @@ export class BlogRouter extends RouterElement {
   }
 
   notFound() {
+    this.previousRoute = undefined;
     this.innerHTML = `
       <style>
         .not-found {
