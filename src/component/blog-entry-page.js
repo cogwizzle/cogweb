@@ -1,14 +1,20 @@
 import { BlogEntry } from './blog-entry.js';
 import { md } from '../utility/markdown.js';
 import { loadingObservable } from './page-loading-bar.js';
+import { toast } from './toast.js';
 
 const getBlog = async (resource) => {
   try {
     const response = await fetch(`/api/blog/${resource}.md`);
-    const text = await response.text();
-    return text;
+    if (response.ok) {
+      const text = await response.text();
+      return text;
+    } else {
+      throw new Error(`${response.status} ${response.statusText}`);
+    }
   } catch (error) {
-    throw new Error(error);
+    toast('Unable to find the blog entry.', { type: 'danger' });
+    return '';
   }
 };
 

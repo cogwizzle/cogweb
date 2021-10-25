@@ -1,14 +1,19 @@
 import { md } from '../utility/markdown.js';
 import { loadingObservable } from './page-loading-bar.js';
+import { toast } from './toast.js';
 
 const getBlogList = async () => {
   try {
     const response = await fetch(`/api/blog/index.json`);
+    if (!response.ok)
+      throw new Error(`${response.status} ${response.statusText}`);
     const data = await response.json();
     return await Promise.all(
       data.map(async (blog) => {
         try {
           const response = await fetch(`/api/blog/${blog.location}.md`);
+          if (!response.ok)
+            throw new Error(`${response.status} ${response.statusText}`);
           const body = await response.text();
           const preview = md(`${body.substring(0, 200)}...`);
           return {
@@ -21,7 +26,9 @@ const getBlogList = async () => {
       })
     );
   } catch (error) {
-    throw new Error(error);
+    toast('Something went wrong while loading blog entries.', {
+      type: 'danger',
+    });
   }
 };
 export class BlogList extends HTMLElement {

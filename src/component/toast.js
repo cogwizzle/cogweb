@@ -47,7 +47,7 @@ const toastGlobalTemplate = (tagName) => {
         position: fixed;
         height: 100vh;
         width: 100vw;
-        mouse-events: none;
+        pointer-events: none;
       }
 
       .toast-wrapper {
@@ -55,6 +55,7 @@ const toastGlobalTemplate = (tagName) => {
         display: flex;
         flex-direction: column;
         transition: height 0.5s ease-out;
+        pointer-events: auto;
       }
 
       .fadeOut {
