@@ -1,6 +1,10 @@
 import { BlogRouter } from './component/blog-router.js';
 import { TitlePageLayout } from './component/title-page-layout.js';
+import { ToastWrapperElement, toast } from './component/toast.js';
 
+window.globalThis.toast = toast;
+
+customElements.define('cw-toast-mount', ToastWrapperElement);
 customElements.define('cw-blog-router', BlogRouter);
 customElements.define('cw-title-page-layout', TitlePageLayout);
 
@@ -15,6 +19,7 @@ class App extends HTMLElement {
 
   render() {
     this.innerHTML = `
+      <cw-toast-mount></cw-toast-mount>
       <cw-title-page-layout>
         <cw-blog-router></cw-blog-router>
       </cw-title-page-layout>
