@@ -1,8 +1,6 @@
 import { BlogRouter } from './component/blog-router.js';
 import { TitlePageLayout } from './component/title-page-layout.js';
-import { ToastWrapperElement, toast } from './component/toast.js';
-
-window.globalThis.toast = toast;
+import { ToastWrapperElement } from './component/toast.js';
 
 customElements.define('cw-toast-mount', ToastWrapperElement);
 customElements.define('cw-blog-router', BlogRouter);
