@@ -1,4 +1,4 @@
-import { RouterElement } from 'https://unpkg.com/ez-hash-router@0.0.4/index.js';
+import { RouterElement } from 'https://unpkg.com/ez-hash-router@0.0.5/index.js';
 import { loadingObservable } from './page-loading-bar.js';
 
 export class BlogRouter extends RouterElement {
@@ -66,7 +66,6 @@ export class BlogRouter extends RouterElement {
   }
 
   notFound() {
-    this.previousRoute = undefined;
     this.innerHTML = `
       <style>
         .not-found {
