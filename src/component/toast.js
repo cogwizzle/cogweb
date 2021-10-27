@@ -231,7 +231,7 @@ export class ToastElement extends HTMLElement {
     `;
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.shadowRoot.querySelector('#remove').addEventListener('click', () => {
-      toastObservable.removeToast(this.getAttribute('key'));
+      this.dispatchEvent(new CustomEvent('remove-toast', { detail: this.key }));
     });
   }
 }
@@ -283,6 +283,9 @@ export class ToastWrapperElement extends HTMLElement {
     toastElement.key = toast.message;
     toastElement.setAttribute('type', toast.options.type);
     toastElement.innerHTML = toast.message;
+    toastElement.addEventListener('remove-toast', (e) => {
+      toastObservable.removeToast(e.detail);
+    });
     acc[toast.options.position].push(toastElement);
     return acc;
   }
