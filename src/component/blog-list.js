@@ -1,37 +1,17 @@
+import { blogService } from '../services/blog-service.js';
 import { loadingObservable } from './page-loading-bar.js';
-import { toast } from './toast.js';
 
-const getBlogList = async () => {
-  try {
-    const response = await fetch(`/api/blog/index.json`);
-    if (!response.ok)
-      throw new Error(`${response.status} ${response.statusText}`);
-    const data = await response.json();
-    return await Promise.all(
-      data.map(async (blog) => {
-        const preview = blog.description;
-        return {
-          ...blog,
-          body: preview,
-        };
-      })
-    );
-  } catch (error) {
-    toast('Something went wrong while loading blog entries.', {
-      type: 'danger',
-    });
-  }
-};
 export class BlogList extends HTMLElement {
   constructor() {
     super();
   }
 
-  connectedCallback() {
+  async connectedCallback() {
     this.attachShadow({ mode: 'open' });
     loadingObservable.pushLoadingState('blog-list');
     this.loading = true;
-    getBlogList()
+    blogService
+      .getIndexBlogs()
       .then((data) => {
         this.data = data;
         this.loading = false;
@@ -89,7 +69,7 @@ export class BlogList extends HTMLElement {
             <div class="entry">
               <span>${entry.date} - ${entry.author}</span>
               <h2>${entry.title}</h2>
-              <div><p>${entry.body}</p></div>
+              <div><p>${entry.description}</p></div>
             </div>
           </a>`
       )}
