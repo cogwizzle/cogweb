@@ -1,21 +1,6 @@
 import { BlogEntry } from './blog-entry.js';
 import { loadingObservable } from './page-loading-bar.js';
-import { toast } from './toast.js';
-
-const getBlog = async (resource) => {
-  try {
-    const response = await fetch(`/api/blog/${resource}`);
-    if (response.ok) {
-      const text = await response.text();
-      return text;
-    } else {
-      throw new Error(`${response.status} ${response.statusText}`);
-    }
-  } catch (error) {
-    toast('Unable to find the blog entry.', { type: 'danger' });
-    return '';
-  }
-};
+import { blogService } from '../services/blog-service.js';
 
 export class BlogEntryPage extends HTMLElement {
   static get observedAttributes() {
@@ -35,7 +20,9 @@ export class BlogEntryPage extends HTMLElement {
   }
 
   async getBlogData() {
-    const text = await getBlog(this.getAttribute('entry'));
+    const text = await blogService.getBlogContentByLocation(
+      this.getAttribute('entry')
+    );
     this.text = text;
     this.loading = false;
     loadingObservable.resolveLoadingState('blog-entry');
