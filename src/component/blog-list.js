@@ -10,19 +10,11 @@ const getBlogList = async () => {
     const data = await response.json();
     return await Promise.all(
       data.map(async (blog) => {
-        try {
-          const response = await fetch(`/api/blog/${blog.location}.md`);
-          if (!response.ok)
-            throw new Error(`${response.status} ${response.statusText}`);
-          const body = await response.text();
-          const preview = md(`${body.substring(0, 200)}...`);
-          return {
-            ...blog,
-            body: preview,
-          };
-        } catch (error) {
-          throw new Error(error);
-        }
+        const preview = blog.description;
+        return {
+          ...blog,
+          body: preview,
+        };
       })
     );
   } catch (error) {
@@ -97,7 +89,8 @@ export class BlogList extends HTMLElement {
           `<a href="#blog/${entry.location}">
             <div class="entry">
               <span>${entry.date} - ${entry.author}</span>
-              <div>${entry.body}</div>
+              <h2>${entry.title}</h2>
+              <div><p>${entry.body}</p></div>
             </div>
           </a>`
       )}
