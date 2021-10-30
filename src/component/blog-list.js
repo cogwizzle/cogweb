@@ -1,4 +1,3 @@
-import { md } from '../utility/markdown.js';
 import { loadingObservable } from './page-loading-bar.js';
 import { toast } from './toast.js';
 
