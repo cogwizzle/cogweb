@@ -63,16 +63,18 @@ export class BlogList extends HTMLElement {
           padding: 16px;
         }
       </style>
-      ${this.data.map(
-        (entry) =>
-          `<a href="#blog/${entry.location}">
+      ${this.data
+        .map(
+          (entry) =>
+            `<a href="#blog/${entry.location}">
             <div class="entry">
               <span>${entry.date} - ${entry.author}</span>
               <h2>${entry.title}</h2>
               <div><p>${entry.description}</p></div>
             </div>
           </a>`
-      )}
+        )
+        .join('')}
     `;
     shadowRoot.innerHTML = '';
     shadowRoot.appendChild(template.content.cloneNode(true));
