@@ -68,8 +68,8 @@ export class BlogList extends HTMLElement {
           (entry) =>
             `<a href="#blog/${entry.location}">
             <div class="entry">
-              <span>${entry.date} - ${entry.author}</span>
               <h2>${entry.title}</h2>
+              <span>${entry.date} - ${entry.author}</span>
               <div><p>${entry.description}</p></div>
             </div>
           </a>`
