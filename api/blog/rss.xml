@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>CogWizzle</title>
+      <description>CogWizzle a blog about modern web development.</description>
+      <link>https://cogwizzle.com</link>
+      <language>en</language>
+      <atom:link href="https://cogwizzle.com/api/blog/rss.xml" rel="self" type="application/rss+xml" />
+      
+        <item>
+          <title>Library Bloat</title>
+          <description>The average size of a web page has been steadily increasing since the beginning of the internet. Over the last few years, with the creation of package registries and package managers like NPM, Yarn, and Bower, the size of our pages has grown at an unprecedented rate. These technologies allow for incredibly fast iteration and deployment of new features and give you the vast array of outsourced tools that you can make use of on your web application. But they come at a cost...</description>
+          <link>https://cogwizzle.com/#blog/library-bloat.html</link>
+          <guid>https://cogwizzle.com/#blog/library-bloat.html</guid>
+          <pubDate>Sat, 30 Oct 2021 04:00:00 GMT</pubDate>
+        </item>
+      
+        <item>
+          <title>You Don't Need React</title>
+          <description>You don't need React. This isn't a joke. I'm not trying to make you use another framework like Angular either. Angular is even bigger and you don't need it either. The fact is you don't need a framework at all. I'm just picking on React because it is the most popular and in my opinion has won the Front End library war of adoption. You can just write plain JavaScript. Before you click away please let me explain...</description>
+          <link>https://cogwizzle.com/#blog/you-dont-need-react.html</link>
+          <guid>https://cogwizzle.com/#blog/you-dont-need-react.html</guid>
+          <pubDate>Wed, 27 Oct 2021 04:00:00 GMT</pubDate>
+        </item>
+      
+    </channel>
+  </rss>
+  
