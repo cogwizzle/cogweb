@@ -6,6 +6,14 @@ customElements.define('cw-toast-mount', ToastWrapperElement);
 customElements.define('cw-blog-router', BlogRouter);
 customElements.define('cw-title-page-layout', TitlePageLayout);
 
+window.addEventListener('load', () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js', {
+      scope: '.',
+    });
+  }
+});
+
 class App extends HTMLElement {
   constructor() {
     super();
