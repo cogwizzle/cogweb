@@ -66,7 +66,7 @@ export class BlogList extends HTMLElement {
       ${this.data
         .map(
           (entry) =>
-            `<a href="#blog/${entry.location}">
+            `<a href="/blog/${entry.location}">
             <div class="entry">
               <h2>${entry.title}</h2>
               <span>${entry.date} - ${entry.author}</span>

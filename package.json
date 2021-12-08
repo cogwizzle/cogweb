@@ -1,0 +1,33 @@
+{
+  "name": "cogweb",
+  "version": "1.0.0",
+  "description": "A simple website using web components.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cogwizzle/cogweb.git"
+  },
+  "keywords": [
+    "web",
+    "components",
+    "javascript",
+    "server",
+    "side",
+    "express",
+    "js",
+    "simple"
+  ],
+  "author": "cogwizzle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cogwizzle/cogweb/issues"
+  },
+  "homepage": "https://github.com/cogwizzle/cogweb#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

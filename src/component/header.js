@@ -34,7 +34,7 @@ export class Header extends HTMLElement {
         }
       </style>
       <h1>
-        <a href="#"><slot></slot></a>
+        <a href="/"><slot></slot></a>
       </h1>
     `;
     shadowRoot.innerHTML = '';

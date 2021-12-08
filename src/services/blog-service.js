@@ -55,7 +55,7 @@ class BlogService {
       return cachedBlog.text;
     }
     try {
-      const response = await fetch(`/api/blog/${location}`);
+      const response = await fetch(`/api/blog/${location}.html`);
       if (response.ok) {
         const text = await response.text();
         this._blogContent = [

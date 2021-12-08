@@ -1,4 +1,4 @@
-import { RouterElement } from 'https://unpkg.com/ez-hash-router@0.0.5/index.js';
+import { RouterElement } from 'https://unpkg.com/ez-client-router@0.0.2/index.js';
 import { loadingObservable } from './page-loading-bar.js';
 
 export class BlogRouter extends RouterElement {
