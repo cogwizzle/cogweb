@@ -1,0 +1,92 @@
+<h2>C++ From the perspective of a JavaScript Developer</h2>
+<p>
+My favorite language is JavaScript. I've been primarily developing in JavaScript and Node.js for the past five years with little time spent writing in other langauges. I feel like I've become quite proficient in JavaScript and it's complex ecosystem for this reason. I've wanted to dip my toes into lower level languages for quite a while. I decided to go with C++ because for an extremely short time in my career I wrote C as a Test Engineer, and I had some C++ experience in college around the year 2010. What I remembered of C and C++ was struggling with pointers, memory management, and basic data structures. C++, of course is an older language. It does show it's age sometimes. But to my surprise what I found instead was a language that had evolved. Pointers were now a breeze. They had many of the popular features I was using JavaScript. I just had to figure out where to look. I'll share the secrets I've discovered so far so that any other aspiring JavaScript developers can get their feet wet a bit easier in C++.
+</p>
+<h3>Memory Management - Smart Pointers</h3>
+<p>
+
+Back in college, when I was writing C++ I remember having to clear memory by hand and worrying about the system running away with memory. Many times in college, I got the dreaded core dump message after my terminal locked up. One of the pillars of C++ is that you have low level control to the computer. There is more responsibility that comes with that. The language does not have garbage collection. You, the developer, manage the memory yourself. Let's show an example of what memory management looked like when I wrote C++ before.
+</p>
+<code>
+int main() {
+  Car *p = new Car(); // Create a new car object.
+  // Do other stuff with car.
+  p->drive(); // Drive the car.
+  delete p; // Delete the car from memory when done.
+  return 0;
+}
+</code>
+<p>
+We have a pointer that points at our car object. You generally use pointers whenever a language like JavaScript would've passed something by reference. Then after you do everything you need to do with the car variable you delete the car from memory. A rule of thumb for the older method of using pointers like this is you need one delete for every new.
+</p>
+<p>
+Fortunately there is a better way of working today. Smart pointers! Smart pointers are a class that wraps around a pointer and manages the memory for you. You can think of them as a pointer that has a destructor. When the smart pointer goes out of scope it will automatically delete the pointer for you. This is a much safer way of working with pointers. Lets see how this looks in C++.
+</p>
+<code>
+#include <memory>
+
+int main() {
+  std::shared_ptr<Car> p = std::make_shared<Car>(); // Create a new car object.
+  // Do other stuff with car.
+  p->drive(); // Drive the car.
+  return 0;
+}
+</code>
+<p>
+In the above example we create the same object, but the memory is cleaned up automatically. The way shared_ptr works is it has an internal counter which keeps track of how many scopes it exist in. Once the counter reaches 0 it runs delete. Note that it does require an unconventional way of creating a car. Instead of calling the constructor you have to call the make_shared method instead. In order to use shared_ptr you also need to import the memory standard library.
+</p>
+<h3>Dependency Management - Conan.io</h3>
+<p>
+One of the crown jewels of the JavaScript community is NPM. Even though it has it's flaws I believe it is the most successful package management tool on the planet. The JavaScript community should be proud to have this tool in it's arsenal. In C++ package management tooling is not quite at the same level. Due to the way libraries, and packages work in C++ it isn't as easy as in JavaScript to install a dependency. There are a few good options for a dependency manager out there, but the one I settled on was Conan. Conan is a package manager that uses Python recipes to download and build libraries on your local machine. A recipe is a script that tells conan how to configure, build , and make a library available to the developer.
+</p>
+<p>
+In the same vein of equivalent tooling C++ sort of has an equivalent build system required to make use of these dependencies. In JS we have tools like Webpack. In C++ the most popular build system is CMake. CMake is a build layer on top of standard make that helps you link all of the dependencies and configure your Makefile without writing out very verbose Makefile configurations. I must say that getting started with CMake is very painful in comparison with tools like Webpack, but at least C++ doesn't have as many dialects or toolchains as JavaScript so that makes it a bit easier once you figure it out.
+</p>
+<h3>Lambda Functions</h3>
+<p>
+JavaScript is powerful because of the langauge's ability to be written functionally, or in an object oriented fashion. Being able to pass a function directly in as an argument to a function is very powerful. And this is something C++ can do now. C++ lambda functions were added in C++11. They are a great way to write functions inline. Lets see an example of how this works.
+<p>
+<code>
+#include <functional>
+
+namespace Test {
+  auto assert = [](string a, string b) {
+    return a == b;
+  };
+}
+</code>
+<p>
+In this example we're creating a function assert that is of the type `function<bool(string, string)>`. This takes in two string and returns true if the strings are equal to one another. The array symbols before the parens is sort of like a dependency array in React. Anything you want from the outside scope of the function to affect the internals of the function can be passed into that array, and the values can then be accessed inside of the function. You can also pass `[=]` instead and everything in the outerscope will be included. Note in order to mutate any of the parameters being passed into the lambda you also need to pass `mutate` after the parens.
+</p>
+<h3>Futures - Promises of C++</h3>
+<p>
+C++ Also has something called futures which is relatively equivalent to how promises works. It allows you to start a function execution running and continue running other code until you need the value. This is what makes JavaScript so fast. In addtion it is a simple way of allowing multithreading in C++ and JavaScript. Here is what Futures look like in c++
+</p>
+<code>
+#include <future>
+
+int main() {
+  std::future<int> f = std::async([]() {
+    return 1 + 1;
+  });
+  std::cout << f.get() << std::endl;
+  return 0;
+}
+</code>
+<p>
+In this example you can see that our function f doesn't return a value, but rather a future. This is because the function is running in a separate thread. The get method is what blocks the thread until the value is returned. This is a very powerful way of writing asynchronous code in C++.
+</p>
+<h3>Conclusion</h3>
+<p>
+I hope this helps some other JavaScript developers get their feet wet a bit easier in C++ without having to do as much reading as I did to find similar features in the language. I'm sure there are many more features that I missed, but I hope this helps you get started.
+</p>
+<style>
+code {
+  width: 100%;
+  display:block;
+  white-space: pre-wrap;
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+</style>
