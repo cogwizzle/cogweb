@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-      <title>CogWizzle</title>
-      <description>CogWizzle a blog about modern web development.</description>
-      <link>https://cogwizzle.com</link>
-      <language>en</language>
-      <atom:link href="https://cogwizzle.com/api/blog/rss.xml" rel="self" type="application/rss+xml" />
-      
-        <item>
-          <title>Library Bloat</title>
-          <description>The average size of a web page has been steadily increasing since the beginning of the internet. Over the last few years, with the creation of package registries and package managers like NPM, Yarn, and Bower, the size of our pages has grown at an unprecedented rate. These technologies allow for incredibly fast iteration and deployment of new features and give you the vast array of outsourced tools that you can make use of on your web application. But they come at a cost...</description>
-          <link>https://cogwizzle.com/#blog/library-bloat.html</link>
-          <guid>https://cogwizzle.com/#blog/library-bloat.html</guid>
-          <pubDate>Sat, 30 Oct 2021 04:00:00 GMT</pubDate>
-        </item>
-      
-        <item>
-          <title>You Don't Need React</title>
-          <description>You don't need React. This isn't a joke. I'm not trying to make you use another framework like Angular either. Angular is even bigger and you don't need it either. The fact is you don't need a framework at all. I'm just picking on React because it is the most popular and in my opinion has won the Front End library war of adoption. You can just write plain JavaScript. Before you click away please let me explain...</description>
-          <link>https://cogwizzle.com/#blog/you-dont-need-react.html</link>
-          <guid>https://cogwizzle.com/#blog/you-dont-need-react.html</guid>
-          <pubDate>Wed, 27 Oct 2021 04:00:00 GMT</pubDate>
-        </item>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CogWizzle</title>
+    <description>CogWizzle a blog about modern web development.</description>
+    <link>https://cogwizzle.com</link>
+    <language>en</language>
+    <atom:link href="https://cogwizzle.com/api/blog/rss.xml" rel="self" type="application/rss+xml" />
 
-        <item>
-          <title>C++ From the perspective of a JavaScript Developer</title>
-          <description>
-            My favorite language is JavaScript. I've been primarily developing in JavaScript and Node.js for the past five years with little time spent writing in other langauges. I feel like I've become quite proficient in JavaScript and it's complex ecosystem for this reason. I've wanted to dip my toes into lower level languages for quite a while. I decided to go with C++ because for an extremely short time in my career I wrote C as a Test Engineer, and I had some C++ experience in college around the year 2010. What I remembered of C and C++ was struggling with pointers, memory management, and basic data structures. C++, of course is an older language. It does show it's age sometimes. But to my surprise what I found instead was a language that had evolved. Pointers were now a breeze. They had many of the popular features I was using JavaScript. I just had to figure out where to look. I'll share the secrets I've discovered so far so that any other aspiring JavaScript developers can get their feet wet a bit easier in C++.
-          </description>
-          <link>https://cogwizzle.com/#blog/cplusplus-from-js-dev.html</link>
-          <guid>https://cogwizzle.com/#blog/cplusplus-from-js-dev.html</guid>
-          <pubDate>Tue, 18 Apr 2023 00:00:00 GMT</pubDate>
-        </item>
-      
-    </channel>
-  </rss>
-  
+    <item>
+      <title>C++ From the perspective of a JavaScript Developer</title>
+      <description>
+        My favorite language is JavaScript. I've been primarily developing in JavaScript and Node.js for the past five years with little time spent writing in other languages. I feel like I've become quite proficient in JavaScript and it's complex ecosystem for this reason. I've wanted to dip my toes into lower level languages for quite a while. I decided to go with C++ because for an extremely short time in my career I wrote C as a Test Engineer, and I had some C++ experience in college around the year 2010. What I remembered of C and C++ was struggling with pointers, memory management, and basic data structures. C++, of course is an older language. It does show it's age sometimes. But to my surprise what I found instead was a language that had evolved. Pointers were now a breeze. They had many of the popular features I was using in JavaScript. I just had to figure out where to look. I'll share the secrets I've discovered so far so that any other aspiring JavaScript developers can get their feet wet a bit easier in C++.
+      </description>
+      <link>https://cogwizzle.com/#blog/cplusplus-from-js-dev.html</link>
+      <guid>https://cogwizzle.com/#blog/cplusplus-from-js-dev.html</guid>
+      <pubDate>Tue, 18 Apr 2023 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Library Bloat</title>
+      <description>The average size of a web page has been steadily increasing since the beginning of the internet. Over the last few years, with the creation of package registries and package managers like NPM, Yarn, and Bower, the size of our pages has grown at an unprecedented rate. These technologies allow for incredibly fast iteration and deployment of new features and give you the vast array of outsourced tools that you can make use of on your web application. But they come at a cost...</description>
+      <link>https://cogwizzle.com/#blog/library-bloat.html</link>
+      <guid>https://cogwizzle.com/#blog/library-bloat.html</guid>
+      <pubDate>Sat, 30 Oct 2021 04:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>You Don't Need React</title>
+      <description>You don't need React. This isn't a joke. I'm not trying to make you use another framework like Angular either. Angular is even bigger and you don't need it either. The fact is you don't need a framework at all. I'm just picking on React because it is the most popular and in my opinion has won the Front End library war of adoption. You can just write plain JavaScript. Before you click away please let me explain...</description>
+      <link>https://cogwizzle.com/#blog/you-dont-need-react.html</link>
+      <guid>https://cogwizzle.com/#blog/you-dont-need-react.html</guid>
+      <pubDate>Wed, 27 Oct 2021 04:00:00 GMT</pubDate>
+    </item>
+
+  </channel>
+</rss>
+
